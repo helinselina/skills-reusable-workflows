@@ -1,0 +1,13 @@
+name: Matrix Caller
+
+on:
+  push:
+
+jobs:
+  call-reusable:
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+    uses: ./.github/workflows/reusable.yml
+    with:
+      node-version: ${{ matrix.node-version }}
